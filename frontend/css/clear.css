@@ -1,0 +1,146 @@
+*{
+    font-family: 'Poppins';
+}
+
+body {
+    background: white;
+    max-width: 390px;
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 11%;
+    margin-bottom: 0%;
+}
+
+p{
+    margin:0;
+    padding:0;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+ul,li{
+    margin:0;padding:0;
+    list-style-type: none;
+}
+
+/*글꼴*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+    font-style: normal;
+}
+
+/*상단바*/
+.text01_wrap {
+    display: flex;
+    align-items: center;
+    margin-top: -5%; 
+    margin-left: 5%;
+    margin-bottom:5%;
+
+}
+.img01_1{
+    width: 20px; /* 원하는 크기로 조정하세요 */
+    height: auto;
+    padding-right: 0.5rem;
+}
+
+
+.text02{
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem; /* 186.667% */
+    margin-right: 0.5rem; 
+}
+
+.wrap01{
+    display: flex;
+    justify-content: space-between;
+    margin-top:4%;
+    margin-right:8%;
+}
+
+/*게시글*/
+.hr01{
+    width:390px;
+    margin:0;
+    padding:0;
+    justify-content: center;
+    border:1px solid rgba(214, 214, 214, 0.50);
+    margin-top:3%;
+}
+
+/*컨텐츠*/
+.img90_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 100% 뷰포트 높이 */
+    text-align: center;
+    margin-top:-25%;
+}
+
+.img90_wrap img,
+.img90_wrap div {
+    margin: 0;
+    padding: 0;
+}
+
+.img_91{
+    display: flex;
+    margin-bottom:28%;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+.text_91{
+    display: flex;
+    width: 16.5625rem;
+    height:5rem;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.75rem; /* 140% */
+    margin-top:-20%;
+    padding-top:0;
+}
+
+.box_91{
+    display: flex;
+    width: 17.625rem;
+    height: 2.5rem;
+    padding: 0rem 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+    background: #FF7A41;
+    color:white;
+    font-weight: bold;
+}
+
+.box91 a:link, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
