@@ -1,0 +1,312 @@
+*{
+    font-family: 'Poppins';
+}
+
+body {
+    width: 390px;
+    height: 844px;  
+    margin: 11% 0;
+    position: relative;
+}
+
+p{
+    margin:0;
+    padding:0;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+ul,li{
+    margin:0;padding:0;
+    list-style-type: none;
+}
+
+/*글꼴*/
+@font-face {
+    font-family: 'Poppins';
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+    font-style: normal;
+}
+
+/*로고*/
+.logo{
+    color: #FF7A41;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem; /* 70% */
+    margin-left: 5%;
+}
+
+/*상단바*/
+.text01_wrap {
+    display: flex;
+    align-items: center;
+    margin-top: 2%; 
+    margin-left: 5%;
+
+}
+.text01{
+    color: #FF7A41;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem; /* 140% */
+    margin-right: 0.5rem; 
+}
+
+.text02{
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem; /* 186.667% */
+    margin-right: 0.5rem; 
+}
+
+.img01_wrap{
+    display: flex; 
+    padding-top:3%;
+}
+
+.img01{
+    width: 2.1875rem;
+    height: 2.1875rem;
+    flex-shrink: 0;
+    padding-right:10%;
+    padding-top:0;
+}
+
+.img02{
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    padding-left:10%;
+    padding-top:8%;
+}
+
+.wrap01{
+    display: flex;
+    justify-content: space-between;
+    margin-top:4%;
+    margin-right:8%;
+}
+
+/*게시글*/
+
+.hr01{
+    width:390px;
+    margin:0;
+    padding:0;
+    justify-content: center;
+    border:1px solid rgba(214, 214, 214, 0.50);
+    margin-top:3%;
+}
+
+.post{
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+    margin-right:0;
+    padding-right:0;
+}
+
+/*게시글 부분 - 왼쪽*/
+.profile_img{
+    width: 31px;
+    height: 31.574px;
+}
+
+.img20{
+    display: relative;
+    margin-top:-3%;
+    margin-right:3%;
+}
+
+/*게시글 부분 - 가운데*/
+.text20_wrap {
+    width: 65%; /* 조절 가능한 글자 영역 너비 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text20{
+    display: block;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.75rem; /* 186.667% */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 5%;
+}
+
+.text21{ /*시간*/
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.5625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.75rem; /* 311.111% */
+    width: 5.75rem;
+    height: 1.375rem;
+    flex-shrink: 0;
+    margin-top:0;
+}
+
+.text30_wrap{
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    padding-top: -100%;
+}
+
+.text30{ /*예상 인원*/
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.75rem; /* 233.333% */
+    margin-right:3%;
+}
+
+.text31{ /*함께하고 있어요*/
+    color: rgba(0, 0, 0, 0.61);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.75rem; /* 280% */
+}
+
+
+/*게시글 부분 - 오른쪽*/
+.wrap02{
+    z-index: 0;
+    text-align: center;
+    padding-top:7.5%;
+    margin-left:8%;
+    margin-top:-1%;
+}
+
+.text40{
+    color: rgba(0, 0, 0, 0.61);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.75rem; /* 233.333% */
+    padding:0;
+    margin-top:-8%;
+
+}
+
+.text41{
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.75rem; /* 280% */
+    margin-top:-5%;
+
+}
+
+.scap_img{
+    width: 1.26563rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+    margin-left:22%;
+}
+
+.table{
+    height:100%;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+    white-space: nowrap;
+}
+
+/* 페이지 번호 */
+.wrap03{
+    display: flex;
+    align-items: center;
+    text-align : center;
+    justify-content:center;
+    margin-top:5%;
+}
+
+.text51{
+    color: #000;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem; /* 233.333% */
+    margin:0 3%;
+    background-color: #D9D9D9;
+    border-radius: 0.3125rem;
+    padding: 0 2.5%;
+}
+
+/* 하단 */
+.wrap04{
+    display: flex;
+    align-items: center;
+    text-align : center;
+    justify-content:center;
+    justify-content: space-between;
+    z-index: 1;
+    position: fixed;
+    bottom: 0%; 
+    width: 390px; 
+    background-color: white; 
+    padding: 5% 0;
+    z-index: 1; 
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2), 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-top:5px;
+    padding-bottom:5%;
+}
+.wrap05{
+    margin-top:5%;
+    padding-bottom: -10%;
+}
+
+.wrap04 a {
+    flex-basis: 20%; /* 5개의 아이콘을 균등하게 나누기 위해 20%로 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap04 a img {
+    width: 1.5rem; /* 아이콘 크기 조정 */
+    height: 1.5rem;
+}
+
+.img60{
+    padding-left:8%;
+}
+
+.img61{
+    padding-right:8%;
+}
