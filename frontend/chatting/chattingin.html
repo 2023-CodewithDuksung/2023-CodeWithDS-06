@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채팅 페이지</title>
+<style>
+    .material-icons{
+                float : left;
+            }
+    a:link { color: black; }
+        a:visited { color:black; }
+        a:hover { color:black; }
+        a:active { color:black; }
+        a {
+            text-decoration: none;
+        }
+        .message.right{
+            text-align: right;
+        }
+        .message.left{
+            text-align: left;
+        }
+        .chat-input{
+            position: fixed;
+            bottom: 0;
+            width: 80%;
+            display: flex;
+        align-items: center; /* 세로 중앙 정렬 */
+        background-color: lightgray;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 10px; /* 입력 창 주위 여백 */
+}
+#message-input {
+        border: none;
+        border-radius: 20px; /* 둥근 직사각형 모양으로 설정 */
+        padding: 10px;
+        background-color: lightgray; /* 회색 배경색 설정 */
+        width: calc(100% - 60px); /* 메시지 전송 버튼을 제외한 너비 설정 */
+    }
+        /* 메시지 내용을 감싸는 상자 스타일 */
+    .message-content {
+        border: 1px solid #ccc;
+        border-color : lightgray;
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block; /* 메시지 내용 크기만큼 상자 크기 설정 */
+    }
+
+    .message-time {
+        font-size: 12px;
+        color: gray;
+    }
+    #add-photo-icon {
+    cursor: pointer;
+    margin-right: 10px; /* send 버튼과 간격을 조정 */
+}
+</style>
+<link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    
+    <div class="chat-container">
+    <div class="upper">
+        <span class="material-icons"><a href="./chatting.html">arrow_back</a></span>
+        <span><h3>채팅</h3></span>
+    </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- 채팅 메시지가 표시될 공간 -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="메시지를 입력하세요...">
+            <span class="material-icons" id="photo-button">
+                add_a_photo
+                </span>
+            <span class="material-icons" id="send-button">
+                send
+                </span>
+        </div>
+    </div>
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const messageInput = document.getElementById('message-input');
+        const photoButton = document.getElementById('photo-button')
+        const sendButton = document.getElementById('send-button');
+        const notificationLinks = document.querySelectorAll('.notification-link');
+
+        // URL에서 파라미터 값을 가져오는 함수
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // 새로운 채팅 메시지 추가
+        function addMessage(sender, message) {
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${sender === '나' ? 'right' : 'left'}`;
+            const messageContent = document.createElement('div');
+            messageContent.className='message-content';
+            messageContent.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            const messageTime = document.createElement('div');
+            messageTime.className = 'message-time';
+            const currentTime=new Date();
+            messageTime.textContent = `${currentTime.getHours()}:${currentTime.getMinutes()}`;
+
+            messageElement.appendChild(messageTime);
+            messageElement.appendChild(messageContent);
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // 메시지 전송 버튼 클릭 이벤트 처리
+        sendButton.addEventListener('click', function() {
+            const message = messageInput.value;
+            if (message) {
+                addMessage('나', message);
+                messageInput.value = ''; // 입력 필드 비우기
+            }
+        });
+
+        // 알림에 대한 파라미터 값을 가져오고 해당 알림의 내용을 표시
+function showNotificationMessage() {
+    const notificationId = getParameterByName('notification');
+    const notifications = {
+        '1': '안녕하세요! 혹시 시험기간 제외하고 진행하시나요?',
+        '2': '안녕하세요~ 일정이 궁금해서 쪽지드려요!'
+        // 추가적인 알림 내용을 여기에 추가할 수 있습니다.
+    };
+
+    if (notificationId in notifications) {
+        addMessage('상대방', notifications[notificationId]); // 상대방이 보낸 내용으로 표시
+    } else {
+        addMessage('상대방', '알림 내용이 없습니다.');
+    }
+}
+
+// 알림 링크 클릭 이벤트 리스너 추가
+
+document.addEventListener('DOMContentLoaded', function() {
+    showNotificationMessage();
+});
+    </script>
+</body>
+</html>
