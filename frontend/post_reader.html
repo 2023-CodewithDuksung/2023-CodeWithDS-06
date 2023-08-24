@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/post_reader.css">
+    <title>독서페이지</title>
+    
+</head>
+<body>
+    <section class="wrap01">
+        <div class="text01_wrap">
+            <div><a href="#"><img class="img01_1" src="images/arrow.jpg"></a></div>
+            <div class="text02">독서</div>
+        </div>
+        
+    </section>
+    <hr class="hr01">
+
+    <section> <!--게시물-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                    <div class="text43">06/10 12:51</div>
+                </div>
+            </div>
+        </div>
+        <div class="text_title">
+            독서 모임 같이 하실 분 계신가요?!😊
+        </div>
+        <div class="text_content">
+            책을 선정해서 같이 읽고 내용은 어땠는지 자신은 어떤 부분이 흥미로웠는지 등등 편하게 이야기 하는 자리예요! 어느정도 난이도가 있는 책들을 읽고 진행할 예정이라 혼자서 읽기 어려웠던 책 있으신 분들에게 추천드려요👍
+            <br><br>
+            매주 월요일 오후 7시쯤으로 생각하고 있어요
+            인원수에 따라 어디 건물인지는 달라지겠지만 학교에서 진행할 생각합니다!
+        </div>
+        <hr class="hr01">
+    </section>
+    
+    <section> <!--댓글 시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                    <div class="text43">06/10 12:51</div>
+                </div>
+            </div>
+        </div>
+        <div class="comment_content">
+            독서 모임 같이 하실 분 계신가요?!😊
+        </div>
+        <div class="send">
+            <a href="#">쪽지보내기</a>
+        </div>
+        <hr class="hr01">
+    </section> <!--댓글 끝-->
+    
+    <section> <!--댓글 시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                    <div class="text43">06/10 12:51</div>
+                </div>
+            </div>
+        </div>
+        <div class="comment_content">
+            독서 모임 같이 하실 분 계신가요?!😊
+        </div>
+        <div class="send">
+            <a href="#">쪽지보내기</a>
+        </div>
+        <hr class="hr01">
+    </section> <!--댓글 끝-->
+
+    <section> <!--댓글 시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                    <div class="text43">06/10 12:51</div>
+                </div>
+            </div>
+        </div>
+        <div class="comment_content">
+            독서 모임 같이 하실 분 계신가요?!😊
+        </div>
+        <div class="send">
+            <a href="#">쪽지보내기</a>
+        </div>
+        <hr class="hr01">
+    </section> <!--댓글 끝-->
+
+    <section> <!--댓글 시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                    <div class="text43">06/10 12:51</div>
+                </div>
+            </div>
+        </div>
+        <div class="comment_content">
+            독서 모임 같이 하실 분 계신가요?!😊
+        </div>
+        <div class="send">
+            <a href="#">쪽지보내기</a>
+        </div>
+        <hr class="hr01">
+    </section> <!--댓글 끝-->
+
+    <section class="box_wrap">
+        <div class="comment-box">
+            <input class="comment-input" type="text" placeholder="댓글을 입력하세요">
+            <button class="submit-btn"><img class="submit-img" src="images/send.png" alt="이미지 버튼"></button>
+        </div>
+    </section>
+    <section class="all_wrap">
+        <div class="img_wrap">
+            <div class="img50"><a href="#"><img id="star-post3" src="images/star2.png" onclick="toggleStar('post3')"></a></div>
+            <div class="img50"><a href="#"><img src="images/msg.png"></a></div>
+        </div>
+        <div class="button_wrap">
+            <div class="text60">예상 인원 : 4명</div>
+            <div><button class="end_btn" onclick="confirmClosure()">신청하기</button></div>
+        </div>
+    </section>
+    <script>
+        // 별 클릭 시 실행될 함수
+        // JavaScript
+    function toggleStar(postId) {
+        const starImg = document.getElementById(`star-${postId}`);
+        const starCount = document.getElementById(`star-count-${postId}`);
+    
+        if (starImg.getAttribute("src") === "images/star_o.png") {
+            starImg.setAttribute("src", "images/star2.png");
+            starCount.textContent = parseInt(starCount.textContent) - 1;
+        } else {
+            starImg.setAttribute("src", "images/star_o.png");
+            starCount.textContent = parseInt(starCount.textContent) + 1;
+        }
+}
+
+    // 클릭
+    
+    function confirmClosure() {
+        
+            const endButton = document.querySelector('.end_btn');
+            const text60 = document.querySelector('.text60');
+
+            endButton.textContent = '신청완료';
+            endButton.style.backgroundColor = 'gray';
+            endButton.style.borderColor = 'gray';
+            text60.textContent = '이미 신청되었습니다.';
+        
+    }
+
+
+    </script>
+</body>
+</html>
