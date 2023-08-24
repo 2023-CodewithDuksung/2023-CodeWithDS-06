@@ -49,10 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
-    #'accounts',
-    'crispy_forms',
-
     'accounts',
     'stamp',
     'post',
@@ -157,9 +153,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-<<<<<<< HEAD
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-=======
 SITE_ID = 1
->>>>>>> 1314d7f29f2c979f4a6147a505562335de357d8e
