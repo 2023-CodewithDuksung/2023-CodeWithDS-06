@@ -21,8 +21,14 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('account/', include('accounts.urls')),
+    path('mypage/', include('mypage.urls')),
+
+
     path('post/', include('post.urls')),
     path('stamp/', include('stamp.urls')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

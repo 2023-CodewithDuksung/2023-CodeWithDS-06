@@ -40,6 +40,8 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
+    'mypage.apps.MypageConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,12 +49,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
+    #'accounts',
+    'crispy_forms',
+
     'accounts',
     'stamp',
     'post',
 
+
     'rest_framework',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,7 +71,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'Backend.middlewares.AutoLoginMiddleware',
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
 
 ROOT_URLCONF = 'Backend.urls'
 
@@ -145,5 +157,9 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+<<<<<<< HEAD
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+=======
+SITE_ID = 1
+>>>>>>> 1314d7f29f2c979f4a6147a505562335de357d8e
