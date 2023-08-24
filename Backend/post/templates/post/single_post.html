@@ -1,17 +1,68 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{ post.title }} - Post</title>
-    </head>
-    <Body>
-        <nav>
-            <a href = "/post">Post</a>
-        </nav>
-        <h1>{{ post.title}}</h1>
-        <h4>{{ post.create_at }}</h4>
-        <p>{{ post.content }}</p>
-        <hr/>
-        <h3>댓글들</h3>
-    </Body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/post_writer.css' %}">
+    <title>{{ post.title }} - Post</title>
+</head>
+<body>
+    <section class="wrap01">
+        <!-- ... -->
+    </section>
+    <hr class="hr01">
+
+    <section>
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img src="{% static 'images/profile.png' %}"></div>
+                <div>
+                    <div class="text42">{{ post.author }}</div>
+                    <div class="text43">{{ post.created_at }}</div>
+                </div>
+            </div>
+            <div class="img40">
+                <a href="#"><img src="{% static 'images/edit2.svg' %}"></a>
+            </div>
+        </div>
+        <div class="text_title">
+            {{ post.title }}
+        </div>
+        <div class="text_content">
+            {{ post.content }}
+        </div>
+        <hr class="hr01">
+    </section>
+
+    {% for comment in comments %}
+    <section>
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img src="{% static 'images/profile.png' %}"></div>
+                <div>
+                    <div class="text42">{{ comment.author }}</div>
+                    <div class="text43">{{ comment.created_at }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="comment_content">
+            {{ comment.content }}
+        </div>
+        <div class="send">
+            <a href="#">쪽지보내기</a>
+        </div>
+        <hr class="hr01">
+    </section>
+    {% endfor %}
+
+    <section class="box_wrap">
+        <!-- ... -->
+    </section>
+    <section class="all_wrap">
+        <!-- ... -->
+    </section>
+    <script>
+        // ... (프론트엔드 페이지에서의 스크립트)
+    </script>
+</body>
 </html>
