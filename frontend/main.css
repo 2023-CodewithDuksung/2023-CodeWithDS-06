@@ -1,0 +1,173 @@
+/* {
+	background: gray;
+}*/
+
+body {
+    background: white;
+    max-width: 390px;
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.main_image {
+    position: relative;
+}
+
+.main_image_text {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    transform: translate( -50%, -50% );
+    color: #FF7A41;
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+#main_image_text1 {
+    position: absolute;
+    top: 80px;
+    left: 30px;
+    transform: translate( -10%, -50% );
+    color: white;
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+#main_image_text2 {
+    position: absolute;
+    top: 160px;
+    left: 30px;
+    transform: translate( -10%, -50% );
+    color: white;
+    font-family: Poppins;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+#main_image_text3 {
+    position: absolute;
+    top: 190px;
+    left: 30px;
+    transform: translate( 0, -50% );
+    color: white;
+    font-family: Poppins;
+    font-size: 13px;
+    line-height: 28px;
+}
+
+ul {
+   list-style:none;
+}
+
+.home_link {
+    display:flex;
+    padding: 10px 15px 10px;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 12px;
+    /*text-align하면 미라클모닝은 중앙정렬이 안 됨.
+    네모박스보다 텍스트가 길어서. 이거 flex로 어떻게 해결할까
+    일단 지금은 텍스트 사이즈 줄임*/
+}
+
+.link_box {
+    width: 64px;
+    height: 64px;
+    border-radius: 10%;
+}
+    
+.link_img {
+width: 30px;
+height: 30px;
+/*display: inline-flex;
+justify-content: center;
+align-items: center;
+vertical-align: middle;
+ㄴ 이 안-flex는 안 먹음. 겉-flex의 기준점을 모르기 때문인 듯*/
+margin-top: 25%;
+}
+
+h1 {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 15px 0 0 15px;
+}
+
+#box_personal {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D6D6D680;
+    border-radius: 5px;
+    margin: 15px 15px 15px;
+    padding: 10px 10px 10px;
+
+    display: flex;
+    align-items: center;
+}
+
+#thumb_image {
+    width: 40%;
+}
+
+#text {
+    width: 60%;
+    padding: 0 10px 0;
+}
+
+.inline_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nickname {
+    font-size: 15px;
+    float:right;
+    padding: 5px 10px;
+}
+
+.category {
+    width: 45px;
+    height: 30px;
+    border-radius: 3px;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-size: 13px;
+    line-height: 30px;
+}
+
+.contents {
+    padding: 12px 0;
+    font-size: 13px;
+}
+
+#hot {
+    font-weight: bolder;
+}
+
+#box_hot {
+    border-radius: 5px;
+    margin: 15px 15px 15px;
+    padding: 10px 10px 10px;
+    background-color: #FFEADB;
+}
+
+.foot{
+    height:60px;
+    width: 100%;
+    bottom:0;
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
