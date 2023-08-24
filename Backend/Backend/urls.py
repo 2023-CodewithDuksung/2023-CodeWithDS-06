@@ -23,6 +23,7 @@ urlpatterns = [
     path('account/', include('accounts.urls')),
     path('mypage/', include('mypage.urls')),
 
+    path('chat/', include('chat.urls')),
 
     path('post/', include('post.urls')),
     path('stamp/', include('stamp.urls')),

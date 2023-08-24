@@ -42,6 +42,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'mypage.apps.MypageConfig',
+    'chat.apps.ChatConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,10 +54,8 @@ INSTALLED_APPS = [
     #'accounts',
     'crispy_forms',
 
-    'accounts',
     'stamp',
     'post',
-
 
     'rest_framework',
 ]
