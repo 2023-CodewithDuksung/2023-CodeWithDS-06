@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채팅 페이지</title>
+<style>
+    svg{
+                float : left;
+            }
+    a:link { color: black; }
+        a:visited { color:black; }
+        a:hover { color:black; }
+        a:active { color:black; }
+        a {
+            text-decoration: none;
+        }
+        .message.right{
+            text-align: right;
+        }
+        .message.left{
+            text-align: left;
+        }
+        .chat-input{
+            position: fixed;
+            bottom: 0;
+            width: 80%;
+            display: flex;
+        align-items: center; /* 세로 중앙 정렬 */
+        background-color: lightgray;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 10px; /* 입력 창 주위 여백 */
+}
+#message-input {
+        border: none;
+        border-radius: 20px; /* 둥근 직사각형 모양으로 설정 */
+        padding: 10px;
+        background-color: lightgray; /* 회색 배경색 설정 */
+        width: calc(100% - 60px); /* 메시지 전송 버튼을 제외한 너비 설정 */
+    }
+        /* 메시지 내용을 감싸는 상자 스타일 */
+    .message-content {
+        border: 1px solid #ccc;
+        border-color : lightgray;
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block; /* 메시지 내용 크기만큼 상자 크기 설정 */
+    }
+
+    .message-time {
+        font-size: 12px;
+        color: gray;
+    }
+    #add-photo-icon {
+    cursor: pointer;
+    margin-right: 10px; /* send 버튼과 간격을 조정 */
+}
+</style>
+</head>
+<body>
+    
+    <div class="chat-container">
+    <div class="upper">
+        <a href="./chatting.html">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="icon/arrow_left">
+                <path id="Vector" d="M6 12L12 18M18.5 12H6H18.5ZM6 12L12 6L6 12Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                </svg>
+        </a>
+        <span><h3>채팅</h3></span>
+    </div>
+        <div class="chat-messages" id="chat-messages">
+            
+            <div class="message.right"><span class="message-content">상대방 : 안녕하세요</span></div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="메시지를 입력하세요...">
+            <svg id="photo-button" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9202 4.55769C18.0565 5.00994 18.4041 6.58494 18.8687 7.09119C19.3334 7.59744 19.9982 7.76957 20.3661 7.76957C22.3214 7.76957 23.9065 9.35469 23.9065 11.3088V17.8282C23.9065 20.4494 21.7802 22.5757 19.159 22.5757H7.84149C5.21912 22.5757 3.09399 20.4494 3.09399 17.8282V11.3088C3.09399 9.35469 4.67912 7.76957 6.63437 7.76957C7.00112 7.76957 7.66599 7.59744 8.13174 7.09119C8.59637 6.58494 8.94287 5.00994 10.0791 4.55769C11.2165 4.10544 15.784 4.10544 16.9202 4.55769Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.6824 10.6875H19.6926" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0763 14.769C17.0763 12.7935 15.4755 11.1926 13.5 11.1926C11.5245 11.1926 9.92358 12.7935 9.92358 14.769C9.92358 16.7445 11.5245 18.3454 13.5 18.3454C15.4755 18.3454 17.0763 16.7445 17.0763 14.769Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            <svg id="send-button" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.8534 7.1528L8.84541 12.2143L3.14951 8.65171C2.33341 8.14113 2.50317 6.90151 3.42626 6.63156L16.9498 2.67117C17.7951 2.42343 18.5785 3.21373 18.3274 4.06175L14.3265 17.5759C14.0524 18.5003 12.8198 18.6655 12.3141 17.8459L8.84276 12.2152" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+                    
+        </div>
+    </div>
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const messageInput = document.getElementById('message-input');
+        const photoButton = document.getElementById('photo-button')
+        const sendButton = document.getElementById('send-button');
+        const notificationLinks = document.querySelectorAll('.notification-link');
+
+        // URL에서 파라미터 값을 가져오는 함수
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // 새로운 채팅 메시지 추가
+        function addMessage(sender, message) {
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${sender === '나' ? 'right' : 'left'}`;
+            const messageContent = document.createElement('div');
+            messageContent.className='message-content';
+            messageContent.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            const messageTime = document.createElement('div');
+            messageTime.className = 'message-time';
+            const currentTime=new Date();
+            messageTime.textContent = `${currentTime.getHours()}:${currentTime.getMinutes()}`;
+
+            messageElement.appendChild(messageTime);
+            messageElement.appendChild(messageContent);
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // 메시지 전송 버튼 클릭 이벤트 처리
+        sendButton.addEventListener('click', function() {
+            const message = messageInput.value;
+            if (message) {
+                addMessage('나', message);
+                messageInput.value = ''; // 입력 필드 비우기
+            }
+        });
+
+        // 알림에 대한 파라미터 값을 가져오고 해당 알림의 내용을 표시
+function showNotificationMessage() {
+    const notificationId = getParameterByName('notification');
+    const notifications = {
+        '1': '안녕하세요! 혹시 시험기간 제외하고 진행하시나요?',
+        '2': '안녕하세요~ 일정이 궁금해서 쪽지드려요!'
+        // 추가적인 알림 내용을 여기에 추가할 수 있습니다.
+    };
+
+}
+
+// 알림 링크 클릭 이벤트 리스너 추가
+
+document.addEventListener('DOMContentLoaded', function() {
+    showNotificationMessage();
+});
+document.getElementById('message-time').value = new Date().toIsString().slice(0,7);
+    </script>
+</body>
+</html>

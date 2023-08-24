@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            .material-icons{
+                float : left;
+                height : auto;
+            }
+            .upper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000; /* 필요한 경우 다른 요소 위에 표시하기 위한 z-index 설정 */
+                border-bottom: 1px solid #EAEAEA;
+                background: #FFF;
+                display: flex;
+                align-items: center;
+                padding: 0 20px;
+            }
+            svg{
+                float: left;
+            }
+            body{
+                max-width: 390px;
+            }
+            a:link { color: black; }
+            a:visited { color:black; }
+            a:hover { color:black; }
+            a:active { color:black; }
+            a {
+                text-decoration: none;
+            }   
+            button{
+                display: flex;
+width: 282px;
+height: 40px;
+padding: 0px 16px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+border-radius: 4px;
+background: #FF7A41;
+align-items: center;
+display: flex;
+
+            }
+            .container{
+                margin-top: 70px;
+            }
+            input{
+                width: 328px;
+height: 32px;
+flex-shrink: 0;
+border-radius: 10px;
+border: 1px solid var(--unnamed, #EAEAEA);
+background: #FFF;
+            }
+        </style>
+        <title>프로필 변경</title>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <header>
+            <div class="upper">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="icon/arrow_left">
+                    <path id="Vector" d="M6 12L12 18M18.5 12H6H18.5ZM6 12L12 6L6 12Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    </svg>
+                    
+                <p id="mypage">프로필 변경</p>
+                </div>
+        </header>
+        <div class="container">
+            <h5>닉네임</h5>
+            <input type="text" name="nickname" placeholder="덩기덕">
+            <h5>소속</h5>
+            <input type="belong" name="belong" placeholder="과학기술대학">
+            <div >
+                <button>변경</button>
+            </div>
+            
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>
+            회원가입
+        </title>
+        <style>
+            #notice{
+                color: #C1C1C1;
+font-family: Poppins;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px;
+            }
+            body{
+                max-width: 390px;
+
+            }
+            .container{
+                margin-top : 50px;
+            }
+            svg{
+                float : left;
+                width: 24px;
+                height: 24px;
+                top: 24px;
+                left: 13px;
+                padding: 6px 5.5px 6px 6px;
+
+            }
+            .upper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000; /* 필요한 경우 다른 요소 위에 표시하기 위한 z-index 설정 */
+                border-bottom: 1px solid #EAEAEA;
+                background: #FFF;
+                display: flex;
+                align-items: center;
+                padding: 0 20px;
+                height : auto;
+                width : auto;
+
+            }
+    
+            #mustdo{
+                display: flex;
+                width: 225px;
+                height: 34px;
+                flex-direction: column;
+                justify-content: center;
+                flex-shrink: 0; 
+                float: left;
+            }
+            #star{
+                color : hsl(0, 100%, 50%);
+            }
+            #star-notice{
+                color: red;
+            }
+            .form-group>input{
+                width: 328px;
+                height: 32px;
+                flex-shrink: 0;
+                border-radius: 10px;
+                border: 1px solid var(--unnamed, #EAEAEA);
+                background: #FFF;
+            }
+            .signup{
+                color: #000;
+                font-family: Poppins;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 844px;
+                line-height: 90px; /* 186.667% */
+
+            }
+            #signup-form{
+                display: flex;
+                width: 60%;
+                
+                flex-direction: column;
+                justify-content: center;
+                flex-shrink: 0;
+
+                color: #000;
+                font-family: Poppins;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 28px; /* 233.333% */
+            }
+            button{
+                display: flex;
+                width: 282px;
+                height: 40px;
+                padding: 0px 16px;
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 0;
+                border-radius: 4px;
+                background: #FF7A41;
+            }
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="upper">
+                <a href="이전페이지">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12L12 18M18.5 12H6H18.5ZM6 12L12 6L6 12Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        
+                </a>
+                <span id="signup">회원가입</span>
+            </div>
+            <p id="mustdo"><span id="star-notice">*<span id="notice"> 표시된 부분은 필수 입력사항입니다.</span></span></p>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="id">아이디<span id="star">*</span></label>
+                    <input type="text" id="username" name="username" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="password">비밀번호<span id="star">*</span></label>
+                    <input type="pawssword" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="password-check">비밀번호 확인<span id="star">*</span></label>
+                    <input type="password" id="password-check" name="password-check" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">이메일<span id="star">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="nickname">닉네임<span id="star">*</span></label>
+                    <input type="text" id="nickname" name="nickname" required>
+                </div>
+                <div class="form-group">
+                    <label for="major">소속<span id="star">*</span></label>
+                    <input type="text" id="major" name="major" required>
+                </div>
+                <button type="submit">회원가입</button>
+            </form>
+        </div>
+
+        <script>
+            const form = document.getElementById("signup-form");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const username = form.username.value;
+                const email = form.email.value;
+                const password = form.password.value;
+                const passwordCheck=form["password-check"].value;
+                
+                if (password != passwordCheck){
+                    alert("비밀번호가 일치하지 않습니다.");
+                    return;
+                }
+                console.log("가입 정보:", username, email, password);
+                alert("회원가입이 완료되었습니다!");
+            });
+        </script>
+    </body>
+</html>

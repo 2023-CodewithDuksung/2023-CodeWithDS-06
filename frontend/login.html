@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> 로그인 </title>
+        <style>
+            body,html{
+                max-height: 844px;
+
+                max-width: 390px;
+                margin-top: 0px;
+            }
+            svg{
+                float: left;
+            }
+            #logo{
+                margin-left: 140px;
+                display: flex;
+                width: 107px;
+                height: 90px;
+                flex-direction: column;
+                justify-content: center;
+                flex-shrink: 0;
+                color: var(--unnamed, #FF7A41);
+                font-family: Poppins;
+                font-size: 128px;
+                font-style: normal;
+                font-weight: 700;
+                align-items: center;
+                line-height: 28px; /* 21.875% */
+            }
+            #mate{
+                display: flex;
+                width: 390px;
+                height: 40px;
+                flex-direction: column;
+                justify-content: center;
+                flex-shrink: 0;
+                align-items: center;
+                color: var(--unnamed, #FF7A41);
+                font-family: Poppins;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 28px; /* 116.667% */
+            }
+            .container{
+                margin-top: 163px;
+            }
+            
+            #submit{
+                margin-top : 30px;
+                display: flex;
+                width: 256px;
+                height: 38px;
+                padding: 0px 16px;
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 0;
+                border-radius: 4px;
+                background: #FF7A41;
+            }
+            #username{
+                width: 256px;
+                height: 56px;
+                flex-shrink: 0;
+                border-radius: 7px;
+                border: 1px solid var(--unnamed, #EAEAEA);
+                background: #FFF;
+            }
+            #password{
+                width: 256px;
+                height: 56px;
+                flex-shrink: 0;
+                border-radius: 7px;
+                border: 1px solid var(--unnamed, #EAEAEA);
+                background: #FFF;
+                align-items: center;
+            }
+            .login-container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #login-form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #memory{
+                display: flex;
+width: 136px;
+height: 32px;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #C1C1C1;
+font-family: Poppins;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px; /* 215.385% */
+            }
+            #id-memory{
+                float: left;
+                margin-top: 10px;
+            }
+            #signin{
+                display: flex;
+width: 58px;
+height: 26px;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #C1C1C1;
+text-align: center;
+font-family: Poppins;
+font-size: 11px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px; /* 254.545% */
+
+            }
+            a:link { color: black; }
+            a:visited { color:black; }
+            a:hover { color:black; }
+            a:active { color:black; }
+            a {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <svg id="logo" width="103" height="90" viewBox="0 0 103 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M102.696 0.143997V90H80.808V36.112L60.712 90H43.048L22.824 35.984V90H0.936V0.143997H26.792L52.008 62.352L76.968 0.143997H102.696Z" fill="#FF7A41"/>
+            </svg>
+            <span id="mate">일상메이트</span>
+        </div>    
+        <div class="login-container">
+            <form id="login-form">
+                <input type="text" id="username" placeholder="아이디" required>
+                <input type="password" id="password" placeholder="비밀번호" required>
+                <span><input type = 'checkbox' name="id-memory" id="id-memory"><span id = "memory">로그인 상태 유지하기</span></span>
+                <button id="submit" type="submit">로그인</button>
+
+                <a href="signup.html"><span id="signin">회원가입</span></a>
+            </form>
+            
+                
+            <p id="error-message" class = "error-message"></p>
+        </div>
+        <script>
+            document.getElementById('login-form').addEventListener('submit',function(event){
+                event.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                if(username === 'your_username' && password === 'your_password'){
+                    window.location.href = './mypage.html';
+                }else{
+                    document.getElementById('error-message').textContext = '유효하지 않은 사용자'
+                }
+            });
+
+            
+        </script>
+    </body>
+</html>
