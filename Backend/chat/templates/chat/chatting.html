@@ -95,7 +95,7 @@
             <!-- 알림이 표시될 공간 -->
             {% if room_list %}
             {% for r in room_list %}
-                <div>{{ r.sender_user }}</div>
+                <div>{{ r.latest_text }}</div>
             {% endfor %}
             {% else %}
               <h3>채팅방이 없습니다.</h3>

@@ -1,5 +1,5 @@
 from datetime import datetime
-from django.db.models import Subquery
+from django.db.models import Subquery, DateTimeField
 from django.db.models import F, Value
 from django.db.models.functions import Coalesce
 from django.shortcuts import render
@@ -27,22 +27,13 @@ class ChatRoomList(ListView):
             unread_count=F('receiver_unread_count'),
         ).values('user', 'unread_count', 'latest_text', 'modified')
 
-        q1_subquery = q1.annotate(
-            modified_with_unread=Coalesce('modified', Value(datetime.min))
-        ).values('user', 'unread_count', 'latest_text', 'modified_with_unread')
-
-        q2_subquery = q2.annotate(
-            modified_with_unread=Coalesce('modified', Value(datetime.min))
-        ).values('user', 'unread_count', 'latest_text', 'modified_with_unread')
-
-        union_subquery = q1_subquery.union(q2_subquery, all=True)
+        union_subquery = q1.union(q2, all=True)
 
         queryset = ChatRoom.objects.filter(
             id__in=Subquery(union_subquery.values('id'))
         ).annotate(
-            modified_with_unread=F('modified_with_unread')
-        ).order_by('-modified_with_unread')
+            unread_modified=F('modified')
+        ).order_by('-unread_modified')
 
-        return queryset
-
+        return union_subquery
 
