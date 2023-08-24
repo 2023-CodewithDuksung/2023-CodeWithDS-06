@@ -1,16 +1,75 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <title>Post</title>
-    </head>
-    <Body>
-        <h1>Post</h1>
-        {% for p in post_list %}
-        <hr/>
-        <h2><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></h2>
-        <h4>{{ p.created_at }}</h4>
-        <p>{{ p.content }}</p>
-        {% endfor %}
-    </Body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/detail1.css' %}">
+    <title>운동페이지</title>
+</head>
+<body>
+    <section>
+        <div class="logo"> <img src="{% static 'images/logo.png' %}"> </div>
+    </section>
+    <section class="wrap01">
+        <div class="text01_wrap">
+            <div class="text01">일상메이트</div>
+            <div class="text02">&gt;</div>
+            <div class="text02">운동</div>
+        </div>
+        <div class="img01_wrap">
+            <div class="img01"><img src="{% static 'images/search.png' %}"></div>
+            <div class="img02"><img src="{% static 'images/menu.png' %}"></div>
+        </div>
+    </section>
+    <hr class="hr01">
+    <section class="table">
+        <div>
+            {% for p in post_list %}
+            <div class="post">
+                <div class="img20">
+                    <div class="profile_img"><img src="{% static 'images/profile.png' %}"></div>
+                </div>
+                <div class="text20_wrap">
+                    <a href="{{ p.get_absolute_url }}">
+                        <div class="text20"><p>{{ p.title }}</p></div>
+                        <div class="text21"><p>{{ p.created_at }}</p></div>
+                        <div class="text30_wrap">
+                            <div class="text30"><p>예상인원 : {{ p.expect_number }} 명 </p></div>
+                            <div class="text31"><p>{{ p.real_number }} 명이 함께하고 있어요!</p></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="wrap02">
+                    <div class="scap_img"><img id="star-post{{ p.star }}" src="{% static 'images/star2.png' %}" onclick="toggleStar('post{{ p.star }}')"></div>
+                    <div class="text40"><p id="star-count-post{{ p.star }}">{{ p.star_number}}</p></div>
+                    <div class="text41">
+                        <p>
+                            {% if p.event_type == 'online' %}
+                                온라인
+                            {% elif p.event_type == 'offline' %}
+                                오프라인
+                            {% endif %}
+                        </p>
+                    </div>                </div>
+            </div>
+            <hr class="hr01">
+            {% endfor %}
+        </div>
+    </section>
+    <script>
+        function toggleStar(postId) {
+            const starImg = document.getElementById(`star-${postId}`);
+            const starCount = document.getElementById(`star-count-${postId}`);
+    
+            if (starImg.getAttribute("src") === "{% static 'images/star_o.png' %}") {
+                starImg.setAttribute("src", "{% static 'images/star2.png' %}");
+                starCount.textContent = parseInt(starCount.textContent) - 1;
+            } else {
+                starImg.setAttribute("src", "{% static 'images/star_o.png' %}");
+                starCount.textContent = parseInt(starCount.textContent) + 1;
+            }
+        }
+    </script>
+</body>
 </html>
