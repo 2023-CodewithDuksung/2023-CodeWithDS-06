@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>채팅 페이지</title>
         <style>
             body,html{
-                margin:10px; padding: 0;
-                width: 100%; height: 100%;
+                margin:0; padding: 0;
                 font-family: Arial, Helvetica, sans-serif;
+                max-width: 390px;
             }
-            .upper{
-                flex-shrink: 0;
+            .upper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000; /* 필요한 경우 다른 요소 위에 표시하기 위한 z-index 설정 */
                 border-bottom: 1px solid #EAEAEA;
                 background: #FFF;
                 display: flex;
                 align-items: center;
-                padding: 0 15px;
+                padding: 0 20px;
+                height : auto;
+                width : auto;
+
             }
-            #alert{
-                color: #000;
-                font-family: Poppins;
-                font-size: 15px;
-                font-style: normal;
-                font-weight: 500;
-                line-height: 28px;
-            }
+
             #chatting{
+                padding-top : 1000;
                 color: #000;
                 font-family: Poppins;
                 font-size: 15px;
@@ -48,9 +50,7 @@
             a {
                 text-decoration: none;
             }  
-            .notification-list {
-                overflow-y: scroll;
-            }
+            
             .notification-link {
                     display: flex;
                     justify-content: space-between; /* 아이콘과 개수를 가로 정렬 */
@@ -71,6 +71,38 @@
                 color: white;
                 font-size: 14px;   
             }
+            .notification-list {
+                margin-bottom: 70px; /* 새로운 메시지와 footer 사이에 여백을 만듭니다 */
+                margin-top : 30px;
+            }
+            .sender{
+                display: flex;
+                width: 60px;
+                height: 30px;
+                flex-direction: column;
+                justify-content: center;
+                flex-shrink: 0;
+                color: #000;
+                font-family: Montserrat;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 28px; /* 200% */
+            }
+            #date{
+                display: flex;
+width: 92px;
+height: 17px;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: black;
+font-family: Montserrat;
+font-size: 8px;
+font-style: normal;
+font-weight: 500;
+line-height: 28px; /* 350% */
+            }
             
         </style>
 
@@ -85,13 +117,18 @@
                         </g>
                         </svg>
                         
-                    <span id="alert">알림</span><span id="chatting">채팅</span>
+                    <span id="chatting">채팅</span>
                 </div>
             </div>
         </header>
 
         <div class="notification-list" id="notification-list">
-            <!-- 알림이 표시될 공간 -->
+            <div class="notification-link">
+                <a href="./chattingin.html" class="notification">
+                    <span class="sender">사용자A</span></span>  <span>새로운 메시지 도착</span>
+                </a>
+            </div>
+        </div>
             
         </div>
         <footer>
@@ -158,10 +195,7 @@
             
                 
             }
-                // 알림 2개 추가
-                addNotificationLink(1, '안녕하세요! 혹시 시험기간 제외하고 진행하시나요?','사용자A');
-                addNotificationLink(1, '저는 덩기덕입니다.','사용자A' )
-                addNotificationLink(2, '안녕하세요~ 일정이 궁금해서 쪽지드려요!','사용자B');
+                                
 
                 // 실제 새 메시지 개수를 업데이트하는 함수
                 function updateNewMessageCount(notificationId, count) {
@@ -179,6 +213,14 @@
                     }
                 });
                 }
+                
+// 현재 시간을 반환하는 함수
+function getCurrentTime() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    return `${hours}:${minutes}`;
+}
 
         </script>
     </body>
