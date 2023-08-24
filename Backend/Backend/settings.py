@@ -49,8 +49,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     #'accounts',
     'crispy_forms',
+
+    'accounts',
+    'stamp',
+    'post',
+
 
     'rest_framework',
 ]
@@ -135,7 +141,7 @@ TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
