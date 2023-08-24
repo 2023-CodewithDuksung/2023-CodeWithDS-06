@@ -237,7 +237,7 @@ ul,li{
 }
 
 .table{
-    height:63%;
+    height:100%;
     overflow-y: scroll;
     overflow-x: hidden; 
     white-space: nowrap;
@@ -273,10 +273,40 @@ ul,li{
     text-align : center;
     justify-content:center;
     justify-content: space-between;
-    margin:10%;
+    z-index: 1;
+    position: fixed;
+    bottom: 0%; 
+    width: 390px; 
+    background-color: white; 
+    padding: 5% 0;
+    z-index: 1; 
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2), 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-top:5px;
+    padding-bottom:5%;
 }
-
 .wrap05{
     margin-top:5%;
     padding-bottom: -10%;
+}
+
+.wrap04 a {
+    flex-basis: 20%; /* 5개의 아이콘을 균등하게 나누기 위해 20%로 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap04 a img {
+    width: 1.5rem; /* 아이콘 크기 조정 */
+    height: 1.5rem;
+}
+
+.img60{
+    padding-left:8%;
+}
+
+.img61{
+    padding-right:8%;
 }
