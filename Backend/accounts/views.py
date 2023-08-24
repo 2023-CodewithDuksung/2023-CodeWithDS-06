@@ -16,15 +16,16 @@ def signin(request):    # 로그인
     elif request.method == "POST":
         user_id = request.POST['username']
         password = request.POST['password']
-        # is_auto_login = request.POST['is_login']
+        is_auto_login = request.POST.get('id-memory') == 'on'
+        print(is_auto_login)
 
         user = authenticate(user_id=user_id, password=password)
         if user is not None:
             login(request, user)
 
-            # if is_auto_login:   # 자동 로그인 체크한 경우
-            #     # 세션에 사용자 정보 저장
-            #     request.session['user_id'] = user.user_id
+            if is_auto_login:   # 자동 로그인 체크한 경우
+                # 세션에 사용자 정보 저장
+                request.session['user_id'] = user.user_id
 
             return redirect('mypage')
         else:
