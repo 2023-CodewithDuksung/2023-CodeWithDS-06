@@ -27,6 +27,7 @@ class Post(models.Model):
         choices=EVENT_TYPE_CHOICES,
         default='오프라인',  # 기본값은 오프라인으로 설정
     )
+    
     # ForeignKey 연결
   #  nickname = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
   #  profile_image = models.ForeignKey(User, on_delete=models.CASCADE)
