@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/check.css">
+    <title>활동인증페이지</title>
+    
+</head>
+<body>
+    <section class="wrap01">
+        <div class="text01_wrap">
+            <div><a href="#"><img class="img01_1" src="images/arrow.jpg"></a></div>
+            <div class="text02">활동 완료</div>
+        </div>
+    </section>
+    <hr class="hr01">
+
+    <section> <!--시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img style="width:3rem" src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                </div>
+            </div>
+            
+            <div class="img40">
+                <a href="#"><img id="star-post4" src="images/square1.svg" onclick="toggleStar('post4')"></a>
+            </div>
+        </div>
+        <hr class="hr01">
+    </section><!--끝-->
+
+    <section> <!--시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img style="width:3rem" src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                </div>
+            </div>
+            
+            <div class="img40">
+                <a href="#"><img id="star-post5" src="images/square1.svg" onclick="toggleStar('post5')"></a>
+            </div>
+        </div>
+        <hr class="hr01">
+    </section><!--끝-->
+
+    <section> <!--시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img style="width:3rem" src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                </div>
+            </div>
+            
+            <div class="img40">
+                <a href="#"><img id="star-post6" src="images/square1.svg" onclick="toggleStar('post6')"></a>
+            </div>
+        </div>
+        <hr class="hr01">
+    </section><!--끝-->
+
+    <section> <!--시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img style="width:3rem" src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                </div>
+            </div>
+            
+            <div class="img40">
+                <a href="#"><img id="star-post7" src="images/square1.svg" onclick="toggleStar('post7')"></a>
+            </div>
+        </div>
+        <hr class="hr01">
+    </section><!--끝-->
+
+    <section> <!--시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img style="width:3rem" src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                </div>
+            </div>
+            
+            <div class="img40">
+                <a href="#"><img id="star-post8" src="images/square1.svg" onclick="toggleStar('post8')"></a>
+            </div>
+        </div>
+        <hr class="hr01">
+    </section><!--끝-->
+
+    <section> <!--시작-->
+        <div class="text40_wrap">
+            <div class="text41_wrap">
+                <div class="img41"><img style="width:3rem" src="images/profile.png"></div>
+                <div>
+                    <div class="text42">간죽간살</div>
+                </div>
+            </div>
+            
+            <div class="img40">
+                <a href="#"><img id="star-post9" src="images/square1.svg" onclick="toggleStar('post9')"></a>
+            </div>
+        </div>
+        <hr class="hr01">
+    </section><!--끝-->
+    <section class="num_wrap">
+        <div class="text71">&lt;</div>
+        <div class="text71"><a href="#">1</a></div>
+        <div class="text71"><a href="#">2</a></div>
+        <div class="text71"><a href="#">3</a></div>
+        <div class="text71"><a href="#">4</a></div>
+        <div class="text71"><a href="#">5</a></div>
+        <div class="text71">&gt;</div>
+    </section>
+
+    <section class="all_wrap">
+        <div class="img_wrap">
+            <div class="img50"><a href="#" id="select-all"><img id="all-stars-icon" src="images/square1.svg" onclick="toggleStar('post10')"></a></div>
+            <div class="text70">전체선택</div>
+        </div>
+        <div class="button_wrap">
+            <div><button class="end_btn" ><a href="clear.html">완료하기</a></button></div> <!--clear.html로 이동-->
+        </div>
+    </section>
+    <script>
+
+        // 별 클릭 시 실행될 함수
+        // JavaScript
+    function toggleStar(postId) {
+        const starImg = document.getElementById(`star-${postId}`);
+        const starCount = document.getElementById(`star-count-${postId}`);
+    
+        if (starImg.getAttribute("src") === "images/square1.svg") {
+            starImg.setAttribute("src", "images/square2.png");
+        } else {
+            starImg.setAttribute("src", "images/square1.svg");
+        }
+}
+
+// 전체 선택 버튼 클릭 시 실행될 함수
+const selectAllButton = document.getElementById("select-all");
+        selectAllButton.addEventListener("click", () => {
+            const allStarsIcon = document.getElementById("all-stars-icon");
+            const allBoxes = document.querySelectorAll("[id^='box-post']");
+            const starImgs = document.querySelectorAll("[id^='star-post']");
+            
+            if (allStarsIcon.getAttribute("src") === "images/square1.svg") {
+                allStarsIcon.setAttribute("src", "images/square2.png");
+                allBoxes.forEach(box => {
+                    box.style.backgroundColor = "#D9D9D9";
+                });
+                starImgs.forEach(starImg => {
+                    starImg.setAttribute("src", "images/square2.png");
+                });
+            } else {
+                allStarsIcon.setAttribute("src", "images/square1.svg");
+                allBoxes.forEach(box => {
+                    box.style.backgroundColor = "transparent";
+                });
+                starImgs.forEach(starImg => {
+                    starImg.setAttribute("src", "images/square1.svg");
+                });
+            }
+        });
+    </script>
+</body>
+</html>
